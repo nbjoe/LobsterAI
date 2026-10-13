@@ -199,8 +199,6 @@ interface ProviderDefInput {
 // ═══════════════════════════════════════════════════════
 
 const DEEPSEEK_V4_CONTEXT_WINDOW = 1_000_000;
-// DeepSeek V4 shares one 384K (393,216 token) budget between thinking and final output.
-const DEEPSEEK_V4_MAX_OUTPUT_TOKENS = 393_216;
 
 const PROVIDER_DEFINITIONS = [
   // ── China ──
@@ -220,8 +218,8 @@ const PROVIDER_DEFINITIONS = [
     region: 'china',
     enPriority: 0,
     defaultModels: [
-      { id: 'deepseek-flash', name: 'DeepSeek V4 Flash', supportsImage: true, supportsThinking: true, contextWindow: DEEPSEEK_V4_CONTEXT_WINDOW, maxTokens: DEEPSEEK_V4_MAX_OUTPUT_TOKENS },
-      { id: 'deepseek-v4-pro', name: 'DeepSeek V4 Pro', supportsImage: false, supportsThinking: true, contextWindow: DEEPSEEK_V4_CONTEXT_WINDOW, maxTokens: DEEPSEEK_V4_MAX_OUTPUT_TOKENS },
+      { id: 'deepseek-flash', name: 'DeepSeek V4 Flash', supportsImage: true, supportsThinking: true, contextWindow: DEEPSEEK_V4_CONTEXT_WINDOW },
+      { id: 'deepseek-v4-pro', name: 'DeepSeek V4 Pro', supportsImage: false, supportsThinking: true, contextWindow: DEEPSEEK_V4_CONTEXT_WINDOW },
     ],
   },
   {
@@ -276,9 +274,9 @@ const PROVIDER_DEFINITIONS = [
     region: 'china',
     enPriority: 0,
     defaultModels: [
-      { id: 'qwen3.8-max', name: 'Qwen3.8 Max', supportsImage: true, supportsThinking: true, contextWindow: 1_000_000, maxTokens: 131_072 },
-      { id: 'qwen3.7-plus', name: 'Qwen3.7 Plus', supportsImage: true, supportsThinking: true, contextWindow: 1_000_000, maxTokens: 65_536 },
-      { id: 'qwen3.8-flash', name: 'Qwen3.8 Flash', supportsImage: true, supportsThinking: true, contextWindow: 1_000_000, maxTokens: 131_072 },
+      { id: 'qwen3.8-max', name: 'Qwen3.8 Max', supportsImage: true, supportsThinking: true, contextWindow: 1_000_000 },
+      { id: 'qwen3.7-plus', name: 'Qwen3.7 Plus', supportsImage: true, supportsThinking: true, contextWindow: 1_000_000 },
+      { id: 'qwen3.8-flash', name: 'Qwen3.8 Flash', supportsImage: true, supportsThinking: true, contextWindow: 1_000_000 },
     ],
   },
   {
@@ -302,11 +300,11 @@ const PROVIDER_DEFINITIONS = [
     region: 'china',
     enPriority: 0,
     defaultModels: [
-      { id: 'glm-5.3', name: 'GLM 5.3', supportsImage: false, supportsThinking: true, contextWindow: 1_000_000, maxTokens: 131_072 },
-      { id: 'glm-5.3-flash', name: 'GLM 5.3 Flash', supportsImage: true, supportsVideo: true, supportsThinking: true, contextWindow: 1_000_000, maxTokens: 131_072 },
-      { id: 'glm-5.3-flashx', name: 'GLM 5.3 FlashX', supportsImage: true, supportsVideo: true, supportsThinking: true, contextWindow: 1_000_000, maxTokens: 131_072 },
-      { id: 'glm-5.2', name: 'GLM 5.2', supportsImage: false, supportsThinking: true, contextWindow: 1_000_000, maxTokens: 131_072 },
-      { id: 'glm-5.1', name: 'GLM 5.1', supportsImage: false, supportsThinking: true, contextWindow: 200_000, maxTokens: 131_072 },
+      { id: 'glm-5.3', name: 'GLM 5.3', supportsImage: false, supportsThinking: true, contextWindow: 1_000_000 },
+      { id: 'glm-5.3-flash', name: 'GLM 5.3 Flash', supportsImage: true, supportsVideo: true, supportsThinking: true, contextWindow: 1_000_000 },
+      { id: 'glm-5.3-flashx', name: 'GLM 5.3 FlashX', supportsImage: true, supportsVideo: true, supportsThinking: true, contextWindow: 1_000_000 },
+      { id: 'glm-5.2', name: 'GLM 5.2', supportsImage: false, supportsThinking: true, contextWindow: 1_000_000 },
+      { id: 'glm-5.1', name: 'GLM 5.1', supportsImage: false, supportsThinking: true, contextWindow: 200_000 },
     ],
   },
   {
@@ -432,8 +430,8 @@ const PROVIDER_DEFINITIONS = [
     region: 'china',
     enPriority: 0,
     defaultModels: [
-      { id: 'mimo-v2.6-pro', name: 'MiMo V2.6 Pro', supportsImage: true, supportsThinking: true, contextWindow: 1_000_000, maxTokens: 131_072 },
-      { id: 'mimo-v2.6-flash', name: 'MiMo V2.6 Flash', supportsImage: true, supportsThinking: true, contextWindow: 1_000_000, maxTokens: 131_072 },
+      { id: 'mimo-v2.6-pro', name: 'MiMo V2.6 Pro', supportsImage: true, supportsThinking: true, contextWindow: 1_000_000 },
+      { id: 'mimo-v2.6-flash', name: 'MiMo V2.6 Flash', supportsImage: true, supportsThinking: true, contextWindow: 1_000_000 },
     ],
   },
   {
