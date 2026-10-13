@@ -2211,7 +2211,7 @@ const Settings: React.FC<SettingsProps> = ({
                 // Fix corrupted model IDs from previous OAuth mutation bug
                 if (providerKey === 'qwen' && (id === 'vision-model' || id === 'coder-model')) {
                   const defaultModel = defaultConfig.providers?.qwen?.models?.[idx];
-                  id = defaultModel?.id || 'qwen3.5-plus';
+                  id = defaultModel?.id || 'qwen3.7-plus';
                 }
                 return {
                   ...model,
@@ -4221,7 +4221,7 @@ const Settings: React.FC<SettingsProps> = ({
         if (firstModel.id === 'vision-model' || firstModel.id === 'coder-model') {
           // Restore from defaultConfig's first qwen model
           const defaultQwenModel = defaultConfig.providers?.qwen?.models?.[0];
-          firstModel.id = defaultQwenModel?.id || 'qwen3.5-plus';
+          firstModel.id = defaultQwenModel?.id || 'qwen3.7-plus';
         }
       }
 

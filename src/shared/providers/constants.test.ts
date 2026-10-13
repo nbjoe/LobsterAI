@@ -74,7 +74,7 @@ describe('ProviderRegistry', () => {
   test('deepseek v4 default models use 1M context', () => {
     const deepseek = ProviderRegistry.get(ProviderName.DeepSeek);
     expect(deepseek?.defaultModels.slice(0, 2)).toEqual([
-      { id: 'deepseek-v4-flash', name: 'DeepSeek V4 Flash', supportsImage: false, supportsThinking: true, contextWindow: 1_000_000 },
+      { id: 'deepseek-flash', name: 'DeepSeek V4 Flash', supportsImage: false, supportsThinking: true, contextWindow: 1_000_000 },
       { id: 'deepseek-v4-pro', name: 'DeepSeek V4 Pro', supportsImage: false, supportsThinking: true, contextWindow: 1_000_000 },
     ]);
   });
@@ -128,7 +128,7 @@ describe('ProviderRegistry', () => {
   test('resolveModelSupportsThinking preserves known reasoning model metadata', () => {
     const knownReasoningModels: Array<[string, string]> = [
       [ProviderName.DeepSeek, 'deepseek-v4-pro'],
-      [ProviderName.DeepSeek, 'deepseek-v4-flash'],
+      [ProviderName.DeepSeek, 'deepseek-flash'],
       [ProviderName.DeepSeek, 'deepseek-reasoner'],
       [ProviderName.Moonshot, 'kimi-k2.6'],
       [ProviderName.Moonshot, 'kimi-k2.5'],

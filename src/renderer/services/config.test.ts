@@ -27,7 +27,7 @@ const makeLegacyConfigWithDeepSeekV4WithoutContextWindow = (): AppConfig => ({
       enabled: true,
       apiKey: 'sk-deepseek',
       models: [
-        { id: 'deepseek-v4-flash', name: 'DeepSeek V4 Flash', supportsImage: false },
+        { id: 'deepseek-flash', name: 'DeepSeek V4 Flash', supportsImage: false },
         { id: 'deepseek-v4-pro', name: 'DeepSeek V4 Pro', supportsImage: false },
       ],
     },
@@ -67,7 +67,7 @@ const makeConfigWithCustomContextWindows = (): AppConfig => ({
       enabled: true,
       apiKey: 'sk-deepseek',
       models: [
-        { id: 'deepseek-v4-flash', name: 'DeepSeek V4 Flash', supportsImage: false, contextWindow: 256_000 },
+        { id: 'deepseek-flash', name: 'DeepSeek V4 Flash', supportsImage: false, contextWindow: 256_000 },
         { id: 'deepseek-v4-pro', name: 'DeepSeek V4 Pro', supportsImage: false, contextWindow: 384_000 },
       ],
     },
@@ -412,14 +412,14 @@ describe('configService provider migrations', () => {
     await configService.updateConfig({
       model: {
         ...legacyConfig.model,
-        defaultModel: 'deepseek-v4-flash',
+        defaultModel: 'deepseek-flash',
         defaultModelProvider: ProviderName.DeepSeek,
       },
     });
 
     const savedConfig = storeData[CONFIG_KEYS.APP_CONFIG] as AppConfig;
     expect(savedConfig.providers?.[ProviderName.DeepSeek].models).toEqual([
-      { id: 'deepseek-v4-flash', name: 'DeepSeek V4 Flash', supportsImage: false, supportsThinking: true, contextWindow: 1_000_000 },
+      { id: 'deepseek-flash', name: 'DeepSeek V4 Flash', supportsImage: false, supportsThinking: true, contextWindow: 1_000_000 },
       { id: 'deepseek-v4-pro', name: 'DeepSeek V4 Pro', supportsImage: false, supportsThinking: true, contextWindow: 1_000_000 },
     ]);
   });
@@ -458,7 +458,7 @@ describe('configService provider migrations', () => {
     const savedConfig = storeData[CONFIG_KEYS.APP_CONFIG] as AppConfig;
     expect(savedConfig.providers?.[ProviderName.Minimax].models?.find(model => model.id === 'MiniMax-M3')?.contextWindow).toBe(512_000);
     expect(savedConfig.providers?.[ProviderName.Minimax].models?.find(model => model.id === 'MiniMax-M3')?.supportsThinking).toBe(true);
-    expect(savedConfig.providers?.[ProviderName.DeepSeek].models?.find(model => model.id === 'deepseek-v4-flash')?.contextWindow).toBe(256_000);
+    expect(savedConfig.providers?.[ProviderName.DeepSeek].models?.find(model => model.id === 'deepseek-flash')?.contextWindow).toBe(256_000);
     expect(savedConfig.providers?.[ProviderName.DeepSeek].models?.find(model => model.id === 'deepseek-v4-pro')?.contextWindow).toBe(384_000);
     expect(savedConfig.providers?.[ProviderName.Xiaomi].models?.find(model => model.id === 'mimo-v2.5-pro')?.contextWindow).toBe(640_000);
     expect(savedConfig.providers?.[ProviderName.Xiaomi].models?.find(model => model.id === 'mimo-v2.5')?.contextWindow).toBe(768_000);
